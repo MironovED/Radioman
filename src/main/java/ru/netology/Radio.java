@@ -5,11 +5,11 @@ public class Radio {
     private int currentVolume;
 
 
-    public int getCurrentRadioStation() {
+    public int getCurrentRadioStation() {       //ready
         return currentRadioStation;
     }
 
-    public void setCurrentRadioStation(int currentRadioStation) {
+    public void setCurrentRadioStation(int currentRadioStation) {       //ready
         if (currentRadioStation > 9) {
             return;
         }
@@ -19,13 +19,15 @@ public class Radio {
         this.currentRadioStation = currentRadioStation;
     }
 
-    public void next(int currentRadioStation) {
+    public void next() {
         if (currentRadioStation < 9) {
             this.currentRadioStation = currentRadioStation + 1;
+        } else {
+            this.currentRadioStation = 0;
         }
     }
 
-    public void prev(int currentRadioStation) {
+    public void prev() {
         if (currentRadioStation > 0) {
             this.currentRadioStation = currentRadioStation - 1;
         } else {
@@ -33,23 +35,29 @@ public class Radio {
         }
     }
 
-    public int getCurrentVolume() {
+    public int getCurrentVolume() {         //ready
         return currentVolume;
     }
 
-    public void increaseVolume(int currentVolume) {
+    public void setCurrentVolume(int currentVolume) {       //ready
+        if (currentVolume > 10) {
+            return;
+        }
+        if (currentVolume < 0) {
+            return;
+        }
+        this.currentVolume = currentVolume;
+    }
+
+    public void increaseVolume() {          //ready
         if (currentVolume < 10) {
-            this.currentVolume = currentVolume + 1;
-        } else {
-            this.currentVolume = 10;
+            currentVolume = currentVolume + 1;
         }
     }
 
-    public void reduceVolume(int currentVolume) {
+    public void reduceVolume() {            //ready
         if (currentVolume > 0) {
-            this.currentVolume = currentVolume - 1;
-        } else {
-            this.currentVolume = 0;
+            currentVolume = currentVolume - 1;
         }
     }
 
